@@ -25,7 +25,7 @@ class _DetailArticleState extends State<DetailArticle> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${this.widget.articles.url}"), //title
+        title: Text("${this.widget.articles.title}"), //title
         elevation: 0,
       ),
       body: Container(

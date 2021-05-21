@@ -1,15 +1,15 @@
 class ArticleResult {
-  late String status;
+  //late String status;
   late int totalResults;
   late List<Articles> articles;
 
   ArticleResult(
-      {required this.status,
+      { //required this.status,
       required this.totalResults,
       required this.articles});
 
   ArticleResult.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
+    // status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
       articles = [];
@@ -21,7 +21,7 @@ class ArticleResult {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
+    //data['status'] = this.status;
     data['totalResults'] = this.totalResults;
     data['articles'] = this.articles.map((v) => v.toJson()).toList();
     return data;
@@ -29,39 +29,40 @@ class ArticleResult {
 }
 
 class Articles {
-  //late Source source;
-  late String author;
+  late Source source;
+  String? author;
   late String title;
-  late String description;
+  String? description;
   late String url;
-  late String urlToImage;
+  String? urlToImage;
   late String publishedAt;
-  late String content;
+  String? content;
 
   Articles(
-      { //required this.source,
-      required this.author,
+      {required this.source,
+      this.author,
       required this.title,
-      required this.description,
+      this.description,
       required this.url,
-      required this.urlToImage,
+      this.urlToImage,
       required this.publishedAt,
-      required this.content});
+      this.content});
 
   Articles.fromJson(Map<String, dynamic> json) {
-    // source = Source.fromJson(json['source']);
-    author = json['author'];
+    source = Source.fromJson(json['source']);
+    author = json['author'] ?? "Inconnue";
     title = json['title'];
-    description = json['description'];
+    description = json['description'] ?? " Pas de description";
     url = json['url'];
-    urlToImage = json['urlToImage'];
+    urlToImage = json['urlToImage'] ??
+        "http://www.intl-spectrum.com/articles/r75/ArticleDefault.jpg?x=528x372";
     publishedAt = json['publishedAt'];
-    content = json['content'];
+    content = json['content'] ?? "Pas de contenue";
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    //data['source'] = this.source.toJson();
+    data['source'] = this.source.toJson();
     data['author'] = this.author;
     data['title'] = this.title;
     data['description'] = this.description;

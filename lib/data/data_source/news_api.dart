@@ -9,7 +9,7 @@ class NewsApi {
     try {
       var responseBody = await http.get(Uri.parse(baseUrl),
           headers: {"content-type": "application/json"});
-      //print(responseBody.statusCode);
+      print(responseBody.statusCode);
       if (responseBody.statusCode == 200) {
         return jsonDecode(responseBody.body);
       } else {

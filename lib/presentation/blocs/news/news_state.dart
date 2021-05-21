@@ -20,4 +20,14 @@ class NewsLoadedSuccess extends NewsState {
   bool get stringify => true;
 }
 
-class NewsLoadedFailure extends NewsState {}
+class NewsLoadedFailure extends NewsState {
+  final Object error;
+
+  NewsLoadedFailure(this.error);
+
+  @override
+  List<Object> get props => [this.error];
+
+  @override
+  bool get stringify => true;
+}

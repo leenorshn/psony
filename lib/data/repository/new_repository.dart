@@ -7,7 +7,7 @@ class NewsRepository {
   NewsRepository(this.newsApi);
 
   Future<ArticleResult> getArticleResults() async {
-    var data = await newsApi.getNews();
+    Map<String, dynamic>? data = await newsApi.getNews();
     print(">>>>> ${data.toString()}");
     return ArticleResult.fromJson(data!);
   }

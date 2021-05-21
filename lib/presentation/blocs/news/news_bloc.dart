@@ -23,7 +23,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         yield NewsLoadedSuccess(data);
       } catch (e) {
         print(e.toString());
-        yield NewsLoadedFailure();
+        yield NewsLoadedFailure(e);
       }
     }
   }

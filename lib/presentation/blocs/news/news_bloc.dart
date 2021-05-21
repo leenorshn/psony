@@ -22,6 +22,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         var data = await newsRepository.getArticleResults();
         yield NewsLoadedSuccess(data);
       } catch (e) {
+        print(e.toString());
         yield NewsLoadedFailure();
       }
     }

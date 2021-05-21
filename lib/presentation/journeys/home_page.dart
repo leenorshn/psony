@@ -46,22 +46,23 @@ class _HomePageState extends State<HomePage>
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
+              color: Colors.white,
               height: 43,
               child: TabBar(
                 controller: _tabController,
                 isScrollable: true,
                 tabs: [
                   Tab(
-                    text: "Tout",
+                    text: "Aujourd'hui",
                   ),
                   Tab(
                     text: "Politique",
                   ),
                   Tab(
-                    text: "Economie",
+                    text: "Santé",
                   ),
                   Tab(
-                    text: "Santé",
+                    text: "Economie",
                   ),
                   Tab(
                     text: "Sport",

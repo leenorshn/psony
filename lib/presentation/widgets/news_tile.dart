@@ -21,18 +21,26 @@ class NewsTile extends StatelessWidget {
               else
                 Text("Pas d'image pour cet information")
             ],
-            Text(
-              "${this.articles.title}",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              child: Text(
+                "${this.articles.title}",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
               ),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
             ),
             Container(
-              margin: EdgeInsets.only(left: 8, right: 8, bottom: 12),
+              margin: EdgeInsets.only(
+                left: 8,
+                right: 8,
+                bottom: 12,
+                top: 16,
+              ),
               child: Text(
                 "${this.articles.description}",
                 style: TextStyle(
@@ -44,6 +52,16 @@ class NewsTile extends StatelessWidget {
                 maxLines: 3,
               ),
             ),
+            Card(
+              child: Row(
+                children: [
+                  IconButton(
+                      icon: Icon(CupertinoIcons.suit_heart), onPressed: () {}),
+                  IconButton(
+                      icon: Icon(CupertinoIcons.eyeglasses), onPressed: () {}),
+                ],
+              ),
+            )
           ],
         ),
       ),

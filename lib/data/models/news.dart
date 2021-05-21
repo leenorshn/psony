@@ -1,12 +1,10 @@
 class ArticleResult {
   late String status;
   late int totalResults;
-  late List<Articles> articles;
+  late List<Articles>? articles;
 
   ArticleResult(
-      {required this.status,
-      required this.totalResults,
-      required this.articles});
+      {required this.status, required this.totalResults, this.articles});
 
   ArticleResult.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -14,7 +12,7 @@ class ArticleResult {
     if (json['articles'] != null) {
       //articles = new List<Articles>();
       json['articles'].forEach((v) {
-        articles.add(new Articles.fromJson(v));
+        articles!.add(new Articles.fromJson(v));
       });
     }
   }
@@ -23,7 +21,7 @@ class ArticleResult {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     data['totalResults'] = this.totalResults;
-    data['articles'] = this.articles.map((v) => v.toJson()).toList();
+    data['articles'] = this.articles!.map((v) => v.toJson()).toList();
     return data;
   }
 }

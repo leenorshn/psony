@@ -4,9 +4,9 @@ import 'package:psony/data/models/news.dart';
 
 class NewsTile extends StatelessWidget {
   final Articles articles;
-  final Function onTap;
+  final VoidCallback onTap;
 
-  const NewsTile({Key key, @required this.articles, this.onTap})
+  const NewsTile({Key? key, required this.articles, required this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,12 @@ class NewsTile extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Image.network("${articles.urlToImage}"),
+            ...[
+              if (articles.urlToImage != "")
+                Image.network("${articles.urlToImage}")
+              else
+                Text("Pas d'image pour cet information")
+            ],
             Text(
               "${this.articles.title}",
               style: TextStyle(

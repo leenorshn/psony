@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class CategoryTile extends StatelessWidget {
   final String name;
   final String value;
-  final Function onTap;
+  final VoidCallback onTap;
 
-  const CategoryTile({Key key, this.name, this.value, this.onTap})
+  const CategoryTile(
+      {Key? key, required this.name, required this.value, required this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

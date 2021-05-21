@@ -14,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   final NewsRepository newsRepository;
 
-  const MyApp({Key key, @required this.newsRepository}) : super(key: key);
+  const MyApp({Key? key, required this.newsRepository}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

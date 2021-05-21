@@ -9,6 +9,6 @@ class NewsRepository {
   Future<ArticleResult> getArticleResults() async {
     var data = await newsApi.getNews();
     print(">>>>> ${data.toString()}");
-    return ArticleResult.fromJson(data);
+    return ArticleResult.fromJson(data!);
   }
 }
